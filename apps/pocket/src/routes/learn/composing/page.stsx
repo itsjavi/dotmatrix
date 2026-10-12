@@ -1,8 +1,8 @@
 // The composing guide (docs/composing.md), rendered as a page with Lumiose's Markdown imports.
 import { href } from "lumiose";
 import { Link } from "lumiose/router";
-import Guide from "../../../docs/composing.md";
-import { tokens } from "../../tokens.ts";
+import Guide from "../../../../docs/composing.md";
+import { tokens } from "../../../tokens.ts";
 
 export default function Composing() {
   return (

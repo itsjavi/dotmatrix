@@ -2,12 +2,19 @@
 // together, and credits.
 import { href } from "lumiose";
 import { Link } from "lumiose/router";
-import { noteData, sfxData } from "../audio/driver.ts";
-import { playOnce } from "../audio/player.ts";
-import { WAVES } from "../audio/tables.ts";
-import { DRUMS, DUTY_NAMES, instrument } from "../model/instruments.ts";
-import type { ChannelIndex, Instrument, Sfx, SfxNote, Track, WaveShape } from "../model/types.ts";
-import { say } from "../state.ts";
+import { noteData, sfxData } from "../../audio/driver.ts";
+import { playOnce } from "../../audio/player.ts";
+import { WAVES } from "../../audio/tables.ts";
+import { DRUMS, DUTY_NAMES, instrument } from "../../model/instruments.ts";
+import type {
+  ChannelIndex,
+  Instrument,
+  Sfx,
+  SfxNote,
+  Track,
+  WaveShape,
+} from "../../model/types.ts";
+import { say } from "../../state.ts";
 
 const note = (fields: Partial<SfxNote>): SfxNote => ({
   frames: 30,

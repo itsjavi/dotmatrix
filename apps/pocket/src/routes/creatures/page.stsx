@@ -3,9 +3,9 @@
 // pitch and length (or roll a new creature), export it, or open it in the studio.
 import { computed, onCleanup, onMount, signal } from "lumiose";
 import { searchParams } from "lumiose/router";
-import { FPS, sfxData, sfxFrames, songSeconds } from "../audio/driver.ts";
-import { playPcm } from "../audio/player.ts";
-import { onSpace } from "../keys.ts";
+import { FPS, sfxData, sfxFrames, songSeconds } from "../../audio/driver.ts";
+import { playPcm } from "../../audio/player.ts";
+import { onSpace } from "../../keys.ts";
 import {
   BASES,
   CREATURES,
@@ -13,9 +13,9 @@ import {
   creatureById,
   cryHeader,
   voiceSfx,
-} from "../model/creatures.ts";
-import { listing } from "../model/sfx.ts";
-import { sfxToSheet, sheetToSfx } from "../model/sheet.ts";
+} from "../../model/creatures.ts";
+import { listing } from "../../model/sfx.ts";
+import { sfxToSheet, sheetToSfx } from "../../model/sheet.ts";
 import {
   keepSound,
   mySounds,
@@ -24,12 +24,12 @@ import {
   renderSound,
   saveWav,
   sheetData,
-} from "../sounds.ts";
-import { say } from "../state.ts";
-import { tokens } from "../tokens.ts";
-import { Maker, type Slider } from "../ui/Maker.stsx";
-import { MySounds } from "../ui/MySounds.stsx";
-import { Sprite } from "../ui/Sprite.stsx";
+} from "../../sounds.ts";
+import { say } from "../../state.ts";
+import { tokens } from "../../tokens.ts";
+import { Maker, type Slider } from "../../ui/Maker.stsx";
+import { MySounds } from "../../ui/MySounds.stsx";
+import { Sprite } from "../../ui/Sprite.stsx";
 
 const ms = (frames: number) => `${Math.round((frames / FPS) * 1000)} ms`;
 const rand = (lo: number, hi: number) => lo + Math.round(Math.random() * (hi - lo));
