@@ -1,4 +1,4 @@
-import { SettingsView } from "../ui/SettingsView.stsx";
+import { SettingsView } from "../../ui/SettingsView.stsx";
 
 export default function Settings() {
   return <SettingsView />;

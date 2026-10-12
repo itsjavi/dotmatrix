@@ -1,4 +1,4 @@
-import { InstrumentView } from "../ui/InstrumentView.stsx";
+import { InstrumentView } from "../../ui/InstrumentView.stsx";
 
 export default function Instruments() {
   return <InstrumentView />;
