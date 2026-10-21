@@ -20,7 +20,21 @@ deployed to GitHub Pages under `/dotmatrix/`:
   `pnpm fmt:check`), `pnpm test` (Vitest), `pnpm build` and `pnpm test:e2e` (Playwright in
   Chromium, against the dev server and the production build). `pnpm check` runs typecheck,
   lint, fmt:check and test. For one app, run the script in its folder or with
-  `pnpm --filter @dotmatrix/<app> <script>`.
+  `pnpm --filter @dotmatrix/<app> <script>`. The root's own `scripts/` and `tests/` are part of
+  these commands too (`node --test` for `scripts/*.test.ts`).
+- **GitHub Pages.** `pnpm build:site` (`scripts/site.ts`) builds every app with its Pages path as
+  its base and assembles one site in `dist/site`: pocket at the root, the others in their folders.
+  `pnpm preview:site` serves it as Pages does, at `http://localhost:5210/dotmatrix/`, and
+  `pnpm test:site` (`tests/site.spec.ts`, also part of `pnpm test:e2e`) checks it in a browser.
+  `.github/workflows/pages.yml` deploys it on every push to main.
+  - An app reads its base from `LUMIOSE_BASE` in its `vite.config.ts` (Vite's `base`) and builds
+    into `dist/client` (Lumiose) or `dist` (plain Vite). New apps join through `APPS` in
+    `scripts/site.ts`; an app whose folder does not exist is skipped.
+  - Pages answers missing paths with the root `404.html` (pocket's). Its first script hands the
+    paths below `/dotmatrix/advanced/` and `/dotmatrix/react/` to that app's own `404.html` (or its
+    `index.html`, the SPA shell, when it has none), which is how deep links survive a reload.
+  - The apps share one origin: keep `localStorage` keys and service worker scopes apart (Advanced's
+    cross-origin isolation worker is scoped to `/dotmatrix/advanced/`) unless sharing is intended.
 - The Lumiose section and the lumiose skill (`.claude/skills/lumiose`) are written for a single
   app: run their `npx lumiose …` commands inside an app folder, where
   `node_modules/lumiose/docs` holds the docs of the installed version.
@@ -32,7 +46,7 @@ deployed to GitHub Pages under `/dotmatrix/`:
 ### Before you finish
 
 Run `pnpm check` and fix what it reports; run `pnpm test:e2e` too when a change affects the UI
-or the audio.
+or the audio, and `pnpm test:site` when it affects routing, an app's base or the site build.
 
 <!-- lumiose:start (managed by `lumiose agents init`; edit outside the markers) -->
 
