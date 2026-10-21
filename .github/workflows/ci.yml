@@ -1,6 +1,6 @@
 # Checks both apps on pushes and pull requests to main: types, lint, formatting, unit tests and
-# builds, then the Playwright suites in Chromium (each against `lumiose dev` and against
-# `lumiose build` + `lumiose preview`).
+# builds, then the Playwright suites in Chromium (each app against `lumiose dev` and against
+# `lumiose build` + `lumiose preview`, then the assembled GitHub Pages site below /dotmatrix/).
 name: CI
 
 on:
@@ -73,13 +73,15 @@ jobs:
         if: steps.browsers.outputs.cache-hit == 'true'
         run: pnpm --filter @dotmatrix/pocket exec playwright install-deps chromium
 
-      # One app at a time: each suite starts its own dev and preview servers.
+      # One suite at a time: each starts its own servers (the site suite builds the Pages site).
       - run: pnpm test:e2e
 
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: playwright-results
-          path: apps/*/test-results
+          path: |
+            apps/*/test-results
+            test-results
           if-no-files-found: ignore
           retention-days: 7
