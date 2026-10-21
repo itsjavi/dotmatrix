@@ -1,15 +1,15 @@
-# Dotmatrix
+# Dotmatrix Pocket
 
-A pocket chiptune studio built with Lumiose as a prerendered SPA: `lumiose({ mode: "spa", prerender: true })`,
-file routes and [`lumiose/router`](../../packages/lumiose/docs/reference/router.md). The build writes the
+A pocket chiptune studio built with [Lumiose](https://itsjavi.com/lumiose/) as a prerendered SPA: `lumiose({ mode: "spa", prerender: true })`,
+file routes and [`lumiose/router`](https://itsjavi.com/lumiose/docs/reference/router/). The build writes the
 real HTML of every page, so the studio, galleries and guides show before JavaScript runs; the app then
 hydrates, reads what the browser saved (the open song, settings, My songs and My sounds) and starts audio
 on the first click or key press. It makes music and sound
 effects for the four channels of the Game Boy sound chip, rendered by the gbapu APU engine in a Web Worker.
-It is the beginner-friendly sibling of [Lumiose Chip](../spa-chiptune): a piano roll and presets instead
+It is the beginner-friendly sibling of [Dotmatrix Advanced](../advanced): a piano roll and presets instead
 of a tracker and hex effect columns.
 
-![The studio playing a demo song](../../backlog/assets/task-133-studio-demo.png)
+![The studio playing a demo song](screenshots/task-133-studio-demo.png)
 
 > The sound engine in `vendor/gbapu/` is [gbapu](https://github.com/itsjavi/gbapu), the author's
 > Game Boy APU library (MIT; its emulation is a TypeScript port of
@@ -22,13 +22,12 @@ From the repository root, once:
 
 ```sh
 pnpm install
-pnpm build:compiler
 ```
 
 Then:
 
 ```sh
-cd examples/spa-dotmatrix
+cd apps/pocket
 pnpm dev        # lumiose dev; open the printed URL and press Play (or Space)
 pnpm build      # lumiose build: every page prerendered into dist/client (a static site)
 pnpm preview    # lumiose preview: serves dist/client
@@ -42,8 +41,8 @@ pnpm test       # Vitest: the driver, the demo songs on the real engine, the ven
 pnpm test:e2e   # Playwright against `lumiose dev` and against `lumiose build` + `lumiose preview`
 ```
 
-To save the e2e screenshots, set `DOTMATRIX_SHOTS=<dir>`. The task screenshots are made with
-`DOTMATRIX_SHOTS=$PWD/../../backlog/assets`.
+To save the e2e screenshots, set `DOTMATRIX_SHOTS=<dir>`. The screenshot above comes from such a
+run.
 
 ## Using it
 
@@ -122,7 +121,7 @@ recipes and original examples.
   `vendor/gbapu` with its `LICENSE` and `CHECKSUMS.sha256`; `src/audio/vendor.test.ts` checks the
   build against the checksums.
 - The driver, presets, wave tables, drum kit, demo songs and sound effects are original work for
-  this sample, written in the style of late-90s handheld RPG soundtracks. No game music, sound
+  this app, written in the style of late-90s handheld RPG soundtracks. No game music, sound
   effects or data are included.
 - Fonts: [Silkscreen](https://fonts.google.com/specimen/Silkscreen) and
   [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk), SIL Open Font License, bundled

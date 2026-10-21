@@ -7,7 +7,7 @@ import { defineConfig } from "vite";
 // Web Audio, the render worker) starts after hydration or on a user gesture. Audio renders offline
 // in a module Web Worker (the vendored gbapu engine), so no cross-origin isolation is needed.
 export default defineConfig({
-  // Served below a path when LUMIOSE_BASE is set (the Lumiose website: /lumiose/examples/spa-dotmatrix/).
+  // Served below a path when LUMIOSE_BASE is set (GitHub Pages: /dotmatrix/).
   base: process.env["LUMIOSE_BASE"] ?? "/",
   // `md: true` lets the Learn section render docs/composing.md as a page.
   plugins: [lumiose({ mode: "spa", prerender: true, md: true })],

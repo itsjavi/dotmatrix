@@ -240,7 +240,7 @@ export default function Learn() {
           <li>
             The sound driver (notes, vibrato, slides, arpeggios, drums), the instrument presets,
             wave tables, drum kit, demo songs, sound effects, base voices and creatures were written
-            for this sample. No game music, sound effects or data are used.
+            for this app. No game music, sound effects or data are used.
           </li>
           <li>
             Fonts: Silkscreen by Jason Kottke and Space Grotesk by Florian Karsten, both under the

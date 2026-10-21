@@ -32,7 +32,7 @@ function nextTheme(theme: Prefs["theme"]): Prefs["theme"] {
   return dark ? "light" : "dark";
 }
 
-/** The Lumiose website, when this app is published on it (scripts/site.ts sets the variable). */
+/** The Lumiose website, linked when the build sets PUBLIC_LUMIOSE_SITE. */
 const LUMIOSE_SITE: string | undefined = import.meta.env.PUBLIC_LUMIOSE_SITE;
 
 export default function Layout(props: { children?: JSX.Element }) {
@@ -56,13 +56,13 @@ export default function Layout(props: { children?: JSX.Element }) {
   return (
     <div class="page">
       <header class="bar">
-        <Link href={href("/")} class="brand" aria-label="Dotmatrix studio">
+        <Link href={href("/")} class="brand" aria-label="Dotmatrix Pocket studio">
           <span class="badge" aria-hidden="true">
             <span class="dots" />
           </span>
           <span class="word">
-            Dotmatrix
-            <small>pocket chiptune studio</small>
+            Dotmatrix Pocket
+            <small>chiptune studio</small>
           </span>
         </Link>
         <nav class="views" aria-label="Views">

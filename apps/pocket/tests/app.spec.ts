@@ -255,7 +255,7 @@ const ROUTES = [
   { path: "/sfx", name: "sfx", text: "Sound effects" },
   { path: "/creatures", name: "creatures", text: "Creature voices" },
   { path: "/learn", name: "learn", text: "How a pocket console makes music" },
-  { path: "/learn/composing", name: "composing", text: "Composing for Dotmatrix" },
+  { path: "/learn/composing", name: "composing", text: "Composing for Dotmatrix Pocket" },
   { path: "/no-such-cartridge", name: "404", text: "No cartridge here" },
 ];
 
@@ -572,7 +572,9 @@ test("the composing guide opens from Learn", async ({ page }) => {
   await page.goto("/learn");
   await page.getByRole("link", { name: "composing guide" }).click();
   await expect(page).toHaveURL(/\/learn\/composing$/);
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Composing for Dotmatrix");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Composing for Dotmatrix Pocket",
+  );
   await expect(page.locator(".guide table").first()).toBeVisible();
   await expect(page.locator(".guide pre").first()).toContainText("square_note");
   await shot153(page, "guide", test.info().project.name);

@@ -1,8 +1,8 @@
-# Composing for Dotmatrix
+# Composing for Dotmatrix Pocket
 
 How to write music, sound effects and creature voices ("cries") for the Game Boy sound chip, in
-the Dotmatrix app and in the sound-driver format its code view shows. Every example here was
-written for this guide or for Dotmatrix; none comes from a game.
+the Dotmatrix Pocket app and in the sound-driver format its code view shows. Every example here was
+written for this guide or for Dotmatrix Pocket; none comes from a game.
 
 - [The four channels](#the-four-channels)
 - [Time: frames, steps and tempo](#time-frames-steps-and-tempo)

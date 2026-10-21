@@ -20,7 +20,7 @@ export default function Document(props: DocumentProps) {
           name="description"
           content="Make Game Boy chiptunes and sound effects in your browser."
         />
-        <title>Dotmatrix: a pocket chiptune studio</title>
+        <title>Dotmatrix Pocket: a Game Boy chiptune studio</title>
         <link rel="icon" href={ICON} />
         <script innerHTML={PREFS_SCRIPT} />
         {props.head}

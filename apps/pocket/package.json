@@ -1,8 +1,8 @@
 {
-  "name": "@lumiose-examples/spa-dotmatrix",
+  "name": "@dotmatrix/pocket",
   "version": "0.0.0",
   "private": true,
-  "description": "Lumiose sample: Dotmatrix, a beginner-friendly Game Boy chiptune studio and SFX maker on the gbapu engine, as a client-rendered SPA on file routes and lumiose/router.",
+  "description": "Dotmatrix Pocket: a beginner-friendly Game Boy chiptune studio and SFX maker on the gbapu engine, as a prerendered SPA built with Lumiose.",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -11,23 +11,23 @@
     "preview": "lumiose preview",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "typecheck": "lumiose check"
+    "typecheck": "lumiose check",
+    "lint": "lumiose lint",
+    "fmt": "lumiose fmt",
+    "fmt:check": "lumiose fmt --check"
   },
   "dependencies": {
     "@fontsource-variable/space-grotesk": "5.3.0",
     "@fontsource/silkscreen": "5.3.0",
-    "@lumiose/adapter-node": "workspace:*",
-    "lumiose": "workspace:*"
+    "@lumiose/adapter-node": "^0.5.0",
+    "lumiose": "^0.5.0"
   },
   "devDependencies": {
-    "@lumiose/cli": "workspace:*",
-    "@lumiose/vite": "workspace:*",
+    "@lumiose/cli": "^0.5.0",
+    "@lumiose/vite": "^0.5.0",
     "@playwright/test": "1.63.0",
     "@types/node": "24.19.1",
-    "vite": "8.3.4"
-  },
-  "demo": {
-    "title": "Dotmatrix chiptune studio (SPA)",
-    "kind": "example"
+    "vite": "8.3.4",
+    "vitest": "^5.0.3"
   }
 }
