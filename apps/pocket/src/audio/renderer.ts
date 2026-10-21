@@ -1,5 +1,5 @@
 // The UI side of rendering: a small pool of render workers and a promise per request.
-import type { EngineAudioData } from "../../vendor/gbaudio/dist/index.js";
+import type { EngineAudioData } from "gbaudio";
 import type { FromWorker, ToWorker } from "./protocol.ts";
 
 type Pending = {

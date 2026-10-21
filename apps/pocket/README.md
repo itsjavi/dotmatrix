@@ -11,10 +11,9 @@ of a tracker and hex effect columns.
 
 ![The studio playing a demo song](screenshots/task-133-studio-demo.png)
 
-> The sound engine in `vendor/gbaudio/` is [gbaudio](https://github.com/itsjavi/gbaudio), the author's
-> Game Boy APU library (MIT; its emulation is a TypeScript port of
-> [stoneface's gbapu](https://github.com/stoneface86/gbapu)). It is vendored as a build until it is
-> on npm; `CHECKSUMS.sha256` pins its files.
+> The sound engine is [gbaudio](https://github.com/itsjavi/gbaudio) from npm, the author's Game Boy
+> APU library (MIT; its emulation is a TypeScript port of
+> [stoneface's gbapu](https://github.com/stoneface86/gbapu)).
 
 ## Run it
 
@@ -37,7 +36,7 @@ Checks:
 
 ```sh
 pnpm typecheck  # lumiose check
-pnpm test       # Vitest: the driver, the demo songs on the real engine, the vendored files' checksums
+pnpm test       # Vitest: the driver, the demo songs on the real engine
 pnpm test:e2e   # Playwright against `lumiose dev` and against `lumiose build` + `lumiose preview`
 ```
 
@@ -104,7 +103,7 @@ recipes and original examples.
   (`src/audio/tables.ts`), and SFX are runs of `square_note`/`noise_note`-style steps.
 - `src/model/sheet.ts` converts sounds to sound sheets and back; `src/model/sheet.test.ts` renders
   every SFX and creature voice both ways on the real engine and compares them.
-- `src/audio/render.worker.ts` runs the vendored engine offline. Each channel renders to its own
+- `src/audio/render.worker.ts` runs the gbaudio engine offline. Each channel renders to its own
   mono stem; `src/audio/player.ts` plays the four stems in sync with Web Audio, loops the part after
   the loop bar, and mixes mute, solo and panning without re-rendering. An edit re-renders only the
   channels it changed (a channel of a 30-second song takes about 0.1 s) and swaps them in at the
@@ -117,9 +116,7 @@ recipes and original examples.
 
 ## Credits
 
-- Sound engine: [gbaudio](https://github.com/itsjavi/gbaudio) (MIT), vendored as a build in
-  `vendor/gbaudio` with its `LICENSE` and `CHECKSUMS.sha256`; `src/audio/vendor.test.ts` checks the
-  build against the checksums.
+- Sound engine: [gbaudio](https://github.com/itsjavi/gbaudio) (MIT), from npm.
 - The driver, presets, wave tables, drum kit, demo songs and sound effects are original work for
   this app, written in the style of late-90s handheld RPG soundtracks. No game music, sound
   effects or data are included.
@@ -129,5 +126,4 @@ recipes and original examples.
 
 ## License
 
-The app code is [MIT](../../LICENSE). The vendored gbaudio build in `vendor/gbaudio` is MIT too, under
-its own [`LICENSE`](vendor/gbaudio/LICENSE).
+The app code is [MIT](../../LICENSE), and so is gbaudio.

@@ -20,6 +20,7 @@
     "@fontsource-variable/space-grotesk": "5.3.0",
     "@fontsource/silkscreen": "5.3.0",
     "@lumiose/adapter-node": "^0.5.0",
+    "gbaudio": "^1.0.1",
     "lumiose": "^0.5.0"
   },
   "devDependencies": {

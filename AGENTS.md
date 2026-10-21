@@ -24,9 +24,8 @@ deployed to GitHub Pages under `/dotmatrix/`:
 - The Lumiose section and the lumiose skill (`.claude/skills/lumiose`) are written for a single
   app: run their `npx lumiose …` commands inside an app folder, where
   `node_modules/lumiose/docs` holds the docs of the installed version.
-- `apps/pocket/vendor/gbaudio` is the vendored gbaudio sound engine, checked against its checksums
-  by `src/audio/vendor.test.ts`. Do not edit it; the app moves to the `gbaudio` npm package once
-  it is published.
+- `apps/pocket` renders sound with the `gbaudio` npm package (github.com/itsjavi/gbaudio); engine
+  changes go there, not here.
 - Each app's README explains how it works. Commits from before the extraction mention TASK ids
   of the [Lumiose backlog](https://github.com/itsjavi/lumiose/tree/main/backlog).
 

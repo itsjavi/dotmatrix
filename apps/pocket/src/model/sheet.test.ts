@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { renderEngineAudioToPcm } from "../../vendor/gbaudio/dist/index.js";
+import { renderEngineAudioToPcm } from "gbaudio";
 import { sfxData, songData } from "../audio/driver.ts";
 import { BASES, CREATURES, creatureSfx } from "./creatures.ts";
 import { SFX } from "./sfx.ts";

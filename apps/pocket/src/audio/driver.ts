@@ -7,7 +7,7 @@ import type {
   EngineAudioCommand,
   EngineAudioData,
   EngineAudioRegisterToken,
-} from "../../vendor/gbaudio/dist/index.js";
+} from "gbaudio";
 import { DRUMS } from "../model/instruments.ts";
 import { hz } from "../model/music.ts";
 import {
