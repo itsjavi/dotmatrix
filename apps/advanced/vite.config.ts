@@ -8,7 +8,7 @@ import { defineConfig } from "vite";
 // cross-origin isolated (SharedArrayBuffer for the audio engine): `lumiose({ headers })` sends them
 // in `lumiose dev` and `lumiose preview`, and writes them to dist/client/_headers for static hosts.
 export default defineConfig({
-  // Served below a path when LUMIOSE_BASE is set (the Lumiose website: /lumiose/showcase/chiptune-tracker/).
+  // Served below a path when LUMIOSE_BASE is set (GitHub Pages: /dotmatrix/advanced/).
   base: process.env["LUMIOSE_BASE"] ?? "/",
   plugins: [
     lumiose({
@@ -21,8 +21,7 @@ export default defineConfig({
       },
     }),
   ],
-  // GitHub Pages cannot send COOP/COEP: the site build (scripts/site.ts, which sets LUMIOSE_BASE)
-  // turns on the cross-origin-isolation service worker (src/isolation.ts, public/coi-sw.js).
+  // GitHub Pages cannot send COOP/COEP: a build with LUMIOSE_BASE set (the Pages build) turns on the cross-origin-isolation service worker (src/isolation.ts, public/coi-sw.js).
   // LUMIOSE_COI_SW=1 or 0 forces it on or off.
   define: {
     "import.meta.env.LUMIOSE_COI_SW": JSON.stringify(

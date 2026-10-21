@@ -1,12 +1,13 @@
-# Lumiose Chip
+# Dotmatrix Advanced
 
-A chiptune tracker, composer and mixer built with Lumiose as a prerendered SPA:
-`lumiose({ mode: "spa", prerender: true })`, file routes and [`lumiose/router`](../../packages/lumiose/docs/reference/router.md).
+A chiptune tracker, composer and mixer built with [Lumiose](https://itsjavi.com/lumiose/) as a prerendered SPA:
+`lumiose({ mode: "spa", prerender: true })`, file routes and [`lumiose/router`](https://itsjavi.com/lumiose/docs/reference/router/).
 Every page's HTML already shows the app, which then hydrates and routes in the browser.
 It has four NES-style voices synthesized in an AudioWorklet: two pulses, a triangle and noise. It
-ships with a demo song, "Lumiose Quest".
+ships with a demo song, "Lumiose Quest". It was called Lumiose Chip while it was an example in the
+Lumiose repository.
 
-![The tracker playing the demo song](../../backlog/assets/task-35-tracker-playing.png)
+![The tracker playing the demo song](screenshots/task-35-tracker-playing.png)
 
 ## Run it
 
@@ -14,13 +15,12 @@ From the repository root, once:
 
 ```sh
 pnpm install
-pnpm build:compiler
 ```
 
 Then:
 
 ```sh
-cd examples/spa-chiptune
+cd apps/advanced
 pnpm dev        # lumiose dev; open the printed URL and press PLAY (or Space)
 pnpm build      # lumiose build: dist/client only (every route prerendered to HTML)
 pnpm preview    # lumiose preview: serves dist/client as a static site
@@ -45,8 +45,8 @@ PLAY or note. Songs live in the browser, so only the demo's tracker page is prer
 (`staticPaths()` in `songs/[id]/page.stsx`); a static host serves `404.html` for other song URLs, and
 the router renders the song page in its place, which opens a song saved in this browser.
 
-**GitHub Pages** cannot send headers, so the Lumiose website's build of this example (`pnpm
-build:site`, which sets `LUMIOSE_BASE`) adds a small first-party service worker,
+**GitHub Pages** cannot send headers, so a build served below a path (one that sets
+`LUMIOSE_BASE`, as the Pages build does) adds a small first-party service worker,
 `public/coi-sw.js`. On the first visit, a page that is not cross-origin isolated registers it
 (`src/isolation.ts`) and reloads once; from then on the worker re-serves every same-origin response
 with COOP/COEP (and CORP), so the page is isolated and the engine uses the `SharedArrayBuffer`. The
@@ -61,12 +61,10 @@ Checks:
 pnpm typecheck  # lumiose check (.stsx through shadow TSX)
 pnpm test       # Vitest: synth, sequencer, history
 pnpm test:e2e   # Playwright against `lumiose dev` and against `lumiose build` + `lumiose preview`
-pnpm test:e2e:pages  # the GitHub Pages build (build:site + preview:site, no headers): isolation
-                     # through the service worker, deep links, and the fallback without it
 ```
 
-To save the e2e screenshots, set `CHIPTUNE_SHOTS=<dir>`. The task screenshots are made with
-`CHIPTUNE_SHOTS=$PWD/../../backlog/assets`.
+To save the e2e screenshots, set `CHIPTUNE_SHOTS=<dir>`. The screenshot above comes from such a
+run.
 
 ## Using it
 

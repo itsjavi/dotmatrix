@@ -53,7 +53,7 @@ export function Header() {
   return (
     <header class="header">
       <div class="top">
-        <PixelLogo text="LUMIOSE CHIP" />
+        <PixelLogo text="DOTMATRIX ADVANCED" />
         <nav class="tabs" aria-label="Views">
           {TABS.map((tab) => (
             <Link

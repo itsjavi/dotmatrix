@@ -7,8 +7,6 @@
   "include": [
     "src",
     "tests",
-    "tests-pages",
-    "playwright.pages.config.ts",
     "vite.config.ts",
     "playwright.config.ts",
     ".lumiose/shadow",

@@ -12,7 +12,7 @@ export default function Document(props: DocumentProps) {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="color-scheme" content="dark" />
-        <title>Lumiose Chip: chiptune tracker</title>
+        <title>Dotmatrix Advanced: chiptune tracker</title>
         <link rel="icon" href={ICON} />
         {props.head}
       </head>
