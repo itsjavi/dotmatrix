@@ -34,10 +34,26 @@ pnpm typecheck      # lumiose check in every app
 pnpm lint           # lumiose lint (oxlint, also for .stsx files)
 pnpm fmt:check      # oxfmt and lumiose fmt --check; pnpm fmt formats
 pnpm test           # Vitest
-pnpm test:e2e       # Playwright, in Chromium, against the dev server and the production build
+pnpm test:e2e       # Playwright in Chromium: each app (dev server and production build), then the site
 ```
 
 Each app's README has more details.
+
+## Deploy
+
+Every push to main deploys the apps to GitHub Pages as one site
+([`.github/workflows/pages.yml`](.github/workflows/pages.yml)), at the URLs above. The same build
+runs locally:
+
+```sh
+pnpm build:site     # every app with its base, assembled into dist/site
+pnpm preview:site   # serves dist/site like GitHub Pages, at http://localhost:5210/dotmatrix/
+pnpm test:site      # Playwright against it: each app, deep links after a reload, share links
+```
+
+GitHub Pages answers a path without a file (such as a song only your browser knows,
+`/dotmatrix/advanced/songs/<id>`) with the site's root 404 page, which hands the paths below
+`/dotmatrix/advanced/` and `/dotmatrix/react/` to that app, so its router opens them.
 
 ## History
 
