@@ -9,8 +9,9 @@ import { defineConfig } from "vite";
 // A client-rendered SPA: index.html loads the app, React Router renders the route. Audio renders
 // offline in a module Web Worker (the gbaudio engine), so no cross-origin isolation is needed.
 export default defineConfig({
-  // Served below a path when BASE_PATH is set (GitHub Pages: /dotmatrix/react/).
-  base: process.env["BASE_PATH"] ?? "/",
+  // Served below a path when LUMIOSE_BASE is set: the workspace's site build (scripts/site.ts) sets
+  // it for every app, /dotmatrix/react/ for this one on GitHub Pages.
+  base: process.env["LUMIOSE_BASE"] ?? "/",
   plugins: [
     // The composing guide (docs/composing.md) compiles to a React component at build time.
     { enforce: "pre", ...mdx({ remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] }) },

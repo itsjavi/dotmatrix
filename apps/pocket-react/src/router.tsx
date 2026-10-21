@@ -20,5 +20,6 @@ export const router = createBrowserRouter(
       ],
     },
   ],
-  { basename: import.meta.env.BASE_URL.replace(/\/$/, "") || "/" },
+  // Below the base path the build is served from; "/" maps to it with its trailing slash.
+  { basename: import.meta.env.BASE_URL },
 );
