@@ -1,0 +1,12 @@
+.sprite {
+  display: block;
+}
+.sa {
+  fill: var(--l1);
+}
+.sb {
+  fill: var(--l2);
+}
+.sc {
+  fill: var(--l3);
+}

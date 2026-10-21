@@ -1,0 +1,46 @@
+.mine {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+.mine h2 {
+  font-size: 14px;
+  color: var(--indigo);
+}
+.empty {
+  margin: 0;
+  font-size: 13px;
+  color: var(--dim);
+}
+.mine ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mine li {
+  display: flex;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--shell);
+  box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.1);
+}
+.mine li.on {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.pick,
+.x {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  padding: 8px 4px 8px 12px;
+}
+.x {
+  padding: 8px 12px 8px 6px;
+  font-size: 14px;
+}
