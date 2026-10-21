@@ -1,0 +1,11 @@
+{
+  "ignorePatterns": [
+    "node_modules/",
+    ".local/",
+    ".DS_Store",
+    "dist/",
+    ".lumiose/",
+    "test-results/",
+    "playwright-report/"
+  ]
+}
