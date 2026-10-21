@@ -1,2 +1,7 @@
 packages:
   - apps/*
+# Our own packages install as soon as they are released, without pnpm's minimum release age.
+minimumReleaseAgeExclude:
+  - lumiose
+  - "@lumiose/*"
+  - gbapu
