@@ -5,13 +5,13 @@ file routes and [`lumiose/router`](https://itsjavi.com/lumiose/docs/reference/ro
 real HTML of every page, so the studio, galleries and guides show before JavaScript runs; the app then
 hydrates, reads what the browser saved (the open song, settings, My songs and My sounds) and starts audio
 on the first click or key press. It makes music and sound
-effects for the four channels of the Game Boy sound chip, rendered by the gbapu APU engine in a Web Worker.
+effects for the four channels of the Game Boy sound chip, rendered by the gbaudio APU engine in a Web Worker.
 It is the beginner-friendly sibling of [Dotmatrix Advanced](../advanced): a piano roll and presets instead
 of a tracker and hex effect columns.
 
 ![The studio playing a demo song](screenshots/task-133-studio-demo.png)
 
-> The sound engine in `vendor/gbapu/` is [gbaudio](https://github.com/itsjavi/gbaudio), the author's
+> The sound engine in `vendor/gbaudio/` is [gbaudio](https://github.com/itsjavi/gbaudio), the author's
 > Game Boy APU library (MIT; its emulation is a TypeScript port of
 > [stoneface's gbapu](https://github.com/stoneface86/gbapu)). It is vendored as a build until it is
 > on npm; `CHECKSUMS.sha256` pins its files.
@@ -97,7 +97,7 @@ recipes and original examples.
 
 ## How it works
 
-- `src/audio/driver.ts` is the sound driver. It turns a song into gbapu command streams (register
+- `src/audio/driver.ts` is the sound driver. It turns a song into gbaudio command streams (register
   writes and waits in CPU cycles) the way a handheld RPG's driver does: notes start on 16th-note
   steps, and once per video frame (70,224 cycles) it updates vibrato, glides, arpeggios, duty cycle
   patterns and the wave channel's volume steps. Noise drums are short programs of noise settings
@@ -118,7 +118,7 @@ recipes and original examples.
 ## Credits
 
 - Sound engine: [gbaudio](https://github.com/itsjavi/gbaudio) (MIT), vendored as a build in
-  `vendor/gbapu` with its `LICENSE` and `CHECKSUMS.sha256`; `src/audio/vendor.test.ts` checks the
+  `vendor/gbaudio` with its `LICENSE` and `CHECKSUMS.sha256`; `src/audio/vendor.test.ts` checks the
   build against the checksums.
 - The driver, presets, wave tables, drum kit, demo songs and sound effects are original work for
   this app, written in the style of late-90s handheld RPG soundtracks. No game music, sound
@@ -129,5 +129,5 @@ recipes and original examples.
 
 ## License
 
-The app code is [MIT](../../LICENSE). The vendored gbapu build in `vendor/gbapu` is MIT too, under
-its own [`LICENSE`](vendor/gbapu/LICENSE).
+The app code is [MIT](../../LICENSE). The vendored gbaudio build in `vendor/gbaudio` is MIT too, under
+its own [`LICENSE`](vendor/gbaudio/LICENSE).

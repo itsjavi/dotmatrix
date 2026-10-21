@@ -2,7 +2,7 @@
   "name": "@dotmatrix/pocket",
   "version": "0.0.0",
   "private": true,
-  "description": "Dotmatrix Pocket: a beginner-friendly Game Boy chiptune studio and SFX maker on the gbapu engine, as a prerendered SPA built with Lumiose.",
+  "description": "Dotmatrix Pocket: a beginner-friendly Game Boy chiptune studio and SFX maker on the gbaudio engine, as a prerendered SPA built with Lumiose.",
   "license": "MIT",
   "type": "module",
   "scripts": {
