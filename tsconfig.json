@@ -1,0 +1,8 @@
+{
+  // The workspace's own scripts and the site suite; each app has its tsconfig.json.
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["scripts", "tests", "playwright.config.ts"]
+}

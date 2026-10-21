@@ -8,6 +8,12 @@ importers:
 
   .:
     devDependencies:
+      '@playwright/test':
+        specifier: 1.63.0
+        version: 1.63.0
+      '@types/node':
+        specifier: 24.19.1
+        version: 24.19.1
       oxfmt:
         specifier: ^0.72.0
         version: 0.72.0
