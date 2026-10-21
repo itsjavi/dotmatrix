@@ -10,7 +10,7 @@ Game Boy studio to a full tracker.
 | **Dotmatrix Advanced**   | `apps/advanced`     | [itsjavi.com/dotmatrix/advanced/](https://itsjavi.com/dotmatrix/advanced/)    |
 
 - **Dotmatrix Pocket**: a pocket chiptune studio and SFX maker for the four channels of the Game
-  Boy sound chip, with a piano roll and presets, rendered by the gbapu APU engine in a Web Worker.
+  Boy sound chip, with a piano roll and presets, rendered by the gbaudio APU engine in a Web Worker.
 - **Dotmatrix Pocket (React)**: the same app ported to React, to compare both implementations.
 - **Dotmatrix Advanced**: a chiptune tracker, composer and mixer with four NES-style voices
   synthesized in an AudioWorklet.

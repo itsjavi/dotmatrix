@@ -4,4 +4,4 @@ packages:
 minimumReleaseAgeExclude:
   - lumiose
   - "@lumiose/*"
-  - gbapu
+  - gbaudio
