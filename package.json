@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "pnpm -r --parallel dev",
     "dev:pocket": "pnpm --filter @dotmatrix/pocket dev",
+    "dev:react": "pnpm --filter @dotmatrix/pocket-react dev",
     "dev:advanced": "pnpm --filter @dotmatrix/advanced dev",
     "build": "pnpm -r build",
     "build:site": "node scripts/site.ts build",

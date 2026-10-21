@@ -4,17 +4,20 @@ Guidance for coding agents.
 
 ## Workspace
 
-A pnpm workspace of chiptune apps. Each app is a prerendered single-page app in its own folder,
-deployed to GitHub Pages under `/dotmatrix/`:
+A pnpm workspace of chiptune apps, each a single-page app in its own folder, deployed to GitHub
+Pages under `/dotmatrix/`:
 
-| App                      | Folder              | Package               | Pages path             |
-| ------------------------ | ------------------- | --------------------- | ---------------------- |
-| Dotmatrix Pocket         | `apps/pocket`       | `@dotmatrix/pocket`   | `/dotmatrix/`          |
-| Dotmatrix Pocket (React) | `apps/pocket-react` | (coming)              | `/dotmatrix/react/`    |
-| Dotmatrix Advanced       | `apps/advanced`     | `@dotmatrix/advanced` | `/dotmatrix/advanced/` |
+| App                      | Folder              | Package                   | Pages path             |
+| ------------------------ | ------------------- | ------------------------- | ---------------------- |
+| Dotmatrix Pocket         | `apps/pocket`       | `@dotmatrix/pocket`       | `/dotmatrix/`          |
+| Dotmatrix Pocket (React) | `apps/pocket-react` | `@dotmatrix/pocket-react` | `/dotmatrix/react/`    |
+| Dotmatrix Advanced       | `apps/advanced`     | `@dotmatrix/advanced`     | `/dotmatrix/advanced/` |
 
-- `apps/pocket` and `apps/advanced` are built with Lumiose (the section below). The React port
-  of Dotmatrix Pocket will be a React app: the Lumiose section does not apply to it.
+- `apps/pocket` and `apps/advanced` are built with Lumiose (the section below), prerendered.
+  `apps/pocket-react` is a client-rendered React app (React Router, Zustand, CSS modules, Vite):
+  the Lumiose section does not apply to it, and its README explains its layout. It keeps a copy
+  of apps/pocket's framework-free code (`src/model`, the sound driver, the render worker); keep
+  the two copies identical, so both apps make the same sound and the comparison stays fair.
 - The apps share no code. Keep a change inside one app unless the task asks for more.
 - Commands from the root run in every app: `pnpm typecheck`, `pnpm lint`, `pnpm fmt` (or
   `pnpm fmt:check`), `pnpm test` (Vitest), `pnpm build` and `pnpm test:e2e` (Playwright in
@@ -35,10 +38,12 @@ deployed to GitHub Pages under `/dotmatrix/`:
     `index.html`, the SPA shell, when it has none), which is how deep links survive a reload.
   - The apps share one origin: keep `localStorage` keys and service worker scopes apart (Advanced's
     cross-origin isolation worker is scoped to `/dotmatrix/advanced/`) unless sharing is intended.
+    Pocket and its React port share their keys on purpose: the same songs, sounds and
+    preferences open in both.
 - The Lumiose section and the lumiose skill (`.claude/skills/lumiose`) are written for a single
   app: run their `npx lumiose …` commands inside an app folder, where
   `node_modules/lumiose/docs` holds the docs of the installed version.
-- `apps/pocket` renders sound with the `gbaudio` npm package (github.com/itsjavi/gbaudio); engine
+- `apps/pocket` and `apps/pocket-react` render sound with the `gbaudio` npm package (github.com/itsjavi/gbaudio); engine
   changes go there, not here.
 - Each app's README explains how it works. Commits from before the extraction mention TASK ids
   of the [Lumiose backlog](https://github.com/itsjavi/lumiose/tree/main/backlog).
